@@ -1,4 +1,4 @@
-page 50116 "Oneline Drive Items"
+page 50116 "Online Drive Items"
 {
     PageType = List;
     ApplicationArea = All;
@@ -124,12 +124,12 @@ page 50116 "Oneline Drive Items"
 
     local procedure OpenDriveItems()
     var
-        OnelineDriveItems: Page "Oneline Drive Items";
+        OnlineDriveItems: Page "Online Drive Items";
         Stream: InStream;
     begin
         if not isFile then begin
-            OnelineDriveItems.SetProperties(AccessToken, StrSubstNo('%1/%2', FolderPath, name), driveId, Id);
-            OnelineDriveItems.Run();
+            OnlineDriveItems.SetProperties(AccessToken, StrSubstNo('%1/%2', FolderPath, name), driveId, Id);
+            OnlineDriveItems.Run();
         end else begin
             if OnlineDriveAPI.DownloadFile(AccessToken, driveId, id, Stream) then
                 DownloadFromStream(Stream, '', '', '', name);

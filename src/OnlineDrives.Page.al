@@ -1,4 +1,4 @@
-page 50115 "Oneline Drives"
+page 50115 "Online Drives"
 {
     PageType = List;
     ApplicationArea = All;
@@ -54,9 +54,9 @@ page 50115 "Oneline Drives"
 
     local procedure OpenDriveItems()
     var
-        OnelineDriveItems: Page "Oneline Drive Items";
+        OnlineDriveItems: Page "Online Drive Items";
     begin
-        OnelineDriveItems.SetProperties(AccessToken, '', Id, '');
-        OnelineDriveItems.Run();
+        OnlineDriveItems.SetProperties(AccessToken, '', Id, '');
+        OnlineDriveItems.Run();
     end;
 }
