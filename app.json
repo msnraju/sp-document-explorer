@@ -1,15 +1,15 @@
 {
   "id": "05fe1ea9-a5da-4a2b-a1a0-137542c0f9e8",
-  "name": "bc-sp-integration",
-  "publisher": "Default publisher",
+  "name": "SharePoint Document Explorer",
+  "publisher": "MSN Raju",
   "version": "1.0.0.0",
   "brief": "",
-  "description": "",
+  "description": "Sample project to demonstrate how to integrate Business Central with SharePoint",
   "privacyStatement": "",
   "EULA": "",
   "help": "",
-  "url": "",
-  "logo": "",
+  "url": "https://www.msnjournals.com/post/how-to-connect-sharepoint-with-business-central",
+  "logo": "media\\msnJournals.png",
   "dependencies": [
     {
       "id": "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
@@ -38,7 +38,7 @@
       "to": 50149
     }
   ],
-  "contextSensitiveHelpUrl": "https://bc-sp-integration.com/help/",
+  "contextSensitiveHelpUrl": "https://www.msnjournals.com/post/how-to-connect-sharepoint-with-business-central",
   "showMyCode": true,
   "runtime": "5.0"
 }

@@ -129,10 +129,7 @@ codeunit 50115 "Online Drive API"
 
                     exit(true);
                 end;
-            end else begin
-                ResponseMessage.Content.ReadAs(ResponseText);
             end;
-
     end;
 
     procedure DeleteDriveItem(AccessToken: Text; DriveID: Text; ItemID: Text): Boolean
@@ -159,7 +156,7 @@ codeunit 50115 "Online Drive API"
         JsonResponse: JsonObject;
         JToken: JsonToken;
     begin
-        if GetResponse(AccessToken, DrivesUrl, JsonResponse) then begin
+        if HttpGet(AccessToken, DrivesUrl, JsonResponse) then begin
             if JsonResponse.Get('value', JToken) then
                 ReadDrives(JToken.AsArray(), Drive);
 
@@ -173,7 +170,7 @@ codeunit 50115 "Online Drive API"
         JToken: JsonToken;
         IsSucces: Boolean;
     begin
-        if GetResponse(AccessToken, StrSubstNo(DrivesItemsUrl, DriveID), JsonResponse) then begin
+        if HttpGet(AccessToken, StrSubstNo(DrivesItemsUrl, DriveID), JsonResponse) then begin
             if JsonResponse.Get('value', JToken) then
                 ReadDriveItems(JToken.AsArray(), DriveID, '', DriveItem);
 
@@ -191,7 +188,7 @@ codeunit 50115 "Online Drive API"
         JToken: JsonToken;
         IsSucces: Boolean;
     begin
-        if GetResponse(AccessToken, StrSubstNo(DrivesChildItemsUrl, DriveID, ItemID), JsonResponse) then begin
+        if HttpGet(AccessToken, StrSubstNo(DrivesChildItemsUrl, DriveID, ItemID), JsonResponse) then begin
             if JsonResponse.Get('value', JToken) then
                 ReadDriveItems(JToken.AsArray(), DriveID, ItemID, DriveItem);
 
@@ -325,7 +322,7 @@ codeunit 50115 "Online Drive API"
         exit(IsSucces);
     end;
 
-    local procedure GetResponse(AccessToken: Text; Url: Text; var JResponse: JsonObject): Boolean
+    local procedure HttpGet(AccessToken: Text; Url: Text; var JResponse: JsonObject): Boolean
     var
         Client: HttpClient;
         Headers: HttpHeaders;

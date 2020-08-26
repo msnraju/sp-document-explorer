@@ -45,6 +45,7 @@ page 50115 "Online Drives"
         OnlineDriveAPI: Codeunit "Online Drive API";
     begin
         AccessToken := OnlineDriveAPI.GetAccessToken('AZUREAD');
+        commit;
         if OnlineDriveAPI.FetchDrives(AccessToken, TempOnlineDrive) then
             Rec.Copy(TempOnlineDrive, true);
     end;
